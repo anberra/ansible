@@ -1,12 +1,17 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+<b>oraswdb-install</b>: This role will install the oracle database server(s). It is possible to run more than 1 database from each home. It performs both Single Instance/RAC installations.
+
+- Creates a .profile_databasename.
+- Creates directory structures.
+- Transfers installfiles to server(s).
+- Installs the database-server(s).
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+None
 
 Role Variables
 --------------
@@ -21,11 +26,12 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+---
+ - name: RDBMS Install
+   hosts: all
+   user: root
+   roles:
+      - oraswdb-install
 
 License
 -------

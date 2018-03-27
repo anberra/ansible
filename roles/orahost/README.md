@@ -1,12 +1,24 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+<b> orahost </b>: This will configure the host specific Oracle stuff:
+
+- Install required packages.
+- Verify /etc/hosts.
+- Add a user & group.
+- Create directory structures.
+- Generate ssh-keys and set up passwordless ssh between clusternodes in case of RAC/RAC One node.
+- Handle filesystem storage (partition devices, creates vg/lv and a filesystem (ext4, xfs, btrfs) etc). If you want to create your database on a filesystem (instead of ASM) this is where you define the layout.
+- Change kernel paramemeters.
+- Set up pam.d/limits config.
+- Configures Hugepages (as a percentage of total RAM).
+- Disables transparent hugepages.
+- Configure user's limits.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+None
 
 Role Variables
 --------------
@@ -21,11 +33,12 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+  ---
+   - name: Host configuration
+     hosts: all
+     user: root
+     roles:
+        - orahost
 
 License
 -------
