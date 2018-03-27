@@ -1,0 +1,7 @@
+---
+ - name: Host configuration
+   hosts: all
+   user: root
+   roles:
+      - orahost
+

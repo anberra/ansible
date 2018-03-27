@@ -1,0 +1,1 @@
+centos01 ansible_host=192.168.12.130 ansible_user=root

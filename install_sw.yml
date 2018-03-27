@@ -1,0 +1,7 @@
+---
+ - name: RDBMS Install
+   hosts: all
+   user: root
+   roles:
+      - oraswdb-install
+
